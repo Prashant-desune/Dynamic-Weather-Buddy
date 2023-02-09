@@ -6,7 +6,7 @@ const error404 = document.querySelector('.not-found');
 
 search.addEventListener('click', () => {
 
-    const APIKey = '710031ea6312d0c06f08cf8ab39dd6e3';
+    const APIKey = '728b0ee6df5687559812bd3169ad77b7';
     const city = document.querySelector('.search-box input').value;
 
     if (city === '')
@@ -53,6 +53,22 @@ search.addEventListener('click', () => {
 
                 case 'Haze':
                     image.src = 'images/mist.png';
+                    break;
+
+                case 'Mist':
+                    image.src = 'images/mist2.png';
+                    break;
+
+                case 'Smoke':
+                    image.src = 'images/smoke.png';
+                    break;
+
+                case 'Sand':
+                    image.src = 'images/sand.png';
+                    break;
+
+                case 'Sand':
+                    image.src = 'images/dust.png';
                     break;
 
                 default:
