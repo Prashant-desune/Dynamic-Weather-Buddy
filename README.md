@@ -1,3 +1,5 @@
 # Dynamic-Weather-App
 Dynamic Weather Website(App) using Real-Time API with HTML css JS 
-<img width="765" alt="SS" src="https://user-images.githubusercontent.com/85585092/217744952-1739ca60-f5a6-497c-9213-463a7ba8f80f.PNG">
+
+https://user-images.githubusercontent.com/85585092/217888913-8e286689-737a-4fcb-8dbb-8e07d02cef35.mp4
+
