@@ -4,7 +4,7 @@ const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
 
-search.addEventListener('click', () => {
+search.addEventListener('click', async() => {
 
     const APIKey = '728b0ee6df5687559812bd3169ad77b7';
     const city = document.querySelector('.search-box input').value;
@@ -12,11 +12,15 @@ search.addEventListener('click', () => {
     if (city === '')
         return;
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`)
-        .then(response => response.json())
-        .then(json => {
+        const data=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=ea7f865aa1d63d118942e1db48658289`);
 
-            if (json.cod === '404') {
+   let fdata=await data.json();
+   console.log(fdata);
+
+   const{main:WeatherCondition}=fdata.weather[0];
+    
+
+            if (fdata.cod === '404') {
                 container.style.height = '400px';
                 weatherBox.style.display = 'none';
                 weatherDetails.style.display = 'none';
@@ -34,7 +38,7 @@ search.addEventListener('click', () => {
             const humidity = document.querySelector('.weather-details .humidity span');
             const wind = document.querySelector('.weather-details .wind span');
 
-            switch (json.weather[0].main) {
+            switch (WeatherCondition) {
                 case 'Clear':
                     image.src = 'images/clear.png';
                     break;
@@ -75,19 +79,15 @@ search.addEventListener('click', () => {
                     image.src = '';
             }
 
-            temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
-            description.innerHTML = `${json.weather[0].description}`;
-            humidity.innerHTML = `${json.main.humidity}%`;
-            wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
+            temperature.innerHTML = `${parseInt(fdata.main.temp)}<span>°C</span>`;
+            description.innerHTML = `${fdata.weather[0].description}`;
+            humidity.innerHTML = `${fdata.main.humidity}%`;
+            wind.innerHTML = `${parseInt(fdata.wind.speed)}Km/h`;
 
             weatherBox.style.display = '';
             weatherDetails.style.display = '';
             weatherBox.classList.add('fadeIn');
             weatherDetails.classList.add('fadeIn');
             container.style.height = '590px';
-
-
-        });
-
 
 });
