@@ -37,6 +37,12 @@ search.addEventListener('click', async() => {
             const description = document.querySelector('.weather-box .description');
             const humidity = document.querySelector('.weather-details .humidity span');
             const wind = document.querySelector('.weather-details .wind span');
+            const pressure = document.querySelector(
+                ".weather-details .pressure-details span"
+            );
+            const visiblity = document.querySelector(
+                ".weather-details .visiblity-details span"
+            );
 
             switch (WeatherCondition) {
                 case 'Clear':
@@ -83,6 +89,10 @@ search.addEventListener('click', async() => {
             description.innerHTML = `${fdata.weather[0].description}`;
             humidity.innerHTML = `${fdata.main.humidity}%`;
             wind.innerHTML = `${parseInt(fdata.wind.speed)}Km/h`;
+            pressure.innerHTML = `${fdata.main.pressure}
+            mb`;
+            visiblity.innerHTML = `${fdata.visibility / 
+            1000}km`;
 
             weatherBox.style.display = '';
             weatherDetails.style.display = '';
