@@ -20,8 +20,7 @@
         <div class="search-box">
             <i class="fa-solid fa-location-dot"></i>
             <input type="text" placeholder="Enter your location" id="id_of_textbox">
-            <button 
-            class="fa-solid fa-magnifying-glass" id="id_of_button"></button>
+            <button class="fa-solid fa-magnifying-glass" id="id_of_button"></button>
         </div>
 
         <div class="not-found">
@@ -50,6 +49,23 @@
                     <p>Wind Speed</p>
                 </div>
             </div>
+
+            <div class="pressure-details">
+                <i class="fa-solid 
+            fa-arrow-down-up-across-line"></i>
+                <div class="text">
+                    <span></span>
+                    <p>Pressure</p>
+                </div>
+            </div>
+
+            <div class="visiblity-details">
+                <i class="fa-regular fa-eye"></i>
+                <div class="text">
+                    <span></span>
+                    <p>Visiblity</p>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -58,12 +74,12 @@
     <script src="index.js"></script>
     <script>
         document.getElementById("id_of_textbox")
-    .addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.keyCode === 13) {
-        document.getElementById("id_of_button").click();
-    }
-});
+            .addEventListener("keyup", function (event) {
+                event.preventDefault();
+                if (event.keyCode === 13) {
+                    document.getElementById("id_of_button").click();
+                }
+            });
     </script>
 </body>
 
